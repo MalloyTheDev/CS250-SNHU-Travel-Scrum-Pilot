@@ -1,0 +1,23 @@
+# Java build output
+*.class
+build/
+out/
+bin/
+target/
+*.jar
+
+# Editor and IDE
+.vscode/
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+# Office lock files
+~$*
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
