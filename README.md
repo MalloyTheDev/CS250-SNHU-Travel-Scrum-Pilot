@@ -19,18 +19,29 @@ leadership.
 
 ## Repository contents
 
-- **[docs/Brendan_Malloy_CS250_Sprint_Review_and_Retrospective.docx](docs/Brendan_Malloy_CS250_Sprint_Review_and_Retrospective.docx)**
+Both documents are kept in their original Office format and as PDF. GitHub renders the PDF
+copies in the browser, so they can be read without downloading anything.
+
+- **Sprint Review and Retrospective**
+  ([PDF](docs/pdf/Brendan_Malloy_CS250_Sprint_Review_and_Retrospective.pdf),
+  [DOCX](docs/Brendan_Malloy_CS250_Sprint_Review_and_Retrospective.docx))
   The final project deliverable. It reviews how the Scrum roles were applied, how user
   stories were carried to Done, how the team absorbed two changes in direction, and it
   evaluates whether Scrum was the right choice for this project.
-- **[docs/Brendan_Malloy_CS250_Agile_Presentation.pptx](docs/Brendan_Malloy_CS250_Agile_Presentation.pptx)**
+- **Agile and waterfall presentation**
+  ([PDF](docs/pdf/Brendan_Malloy_CS250_Agile_Presentation.pdf),
+  [PPTX](docs/Brendan_Malloy_CS250_Agile_Presentation.pptx))
   The presentation to ChadaTech leadership comparing Agile and waterfall, walking the
   wellness change through both approaches, and recommending an adoption path.
-- **[slideshow/src/](slideshow/src/)**
+- **[Slide show source](slideshow/src/)**
   The Java Swing slide show built as Developer, covering the five wellness destinations.
   Source and image resources are tracked here; build output is not.
 
-## Building and running the slide show
+## The slide show
+
+![The SNHU Travel slide show window, showing the first ranked wellness destination, a yoga
+and mindfulness retreat, with its caption below the image and Previous and Next buttons
+underneath](docs/images/slideshow.png)
 
 The slide show is a single Java Swing class with no external dependencies. It was written
 against Java 8 and compiles and runs on current JDKs. From the repository root:
