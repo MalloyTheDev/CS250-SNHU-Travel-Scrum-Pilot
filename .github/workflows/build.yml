@@ -62,7 +62,7 @@ jobs:
           echo "JAR verified: entry point, manifest, and all 5 images present"
 
       - name: Upload the built JAR
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
           name: SlideShow-jdk${{ matrix.java }}
           path: slideshow/SlideShow.jar
