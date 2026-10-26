@@ -19,7 +19,7 @@ leadership.
 
 ## Repository contents
 
-Both documents are kept in their original Office format and as PDF. GitHub renders the PDF
+Each document is kept in its original Office format and as PDF. GitHub renders the PDF
 copies in the browser, so they can be read without downloading anything.
 
 - **Sprint Review and Retrospective**
@@ -33,6 +33,12 @@ copies in the browser, so they can be read without downloading anything.
   [PPTX](docs/Brendan_Malloy_CS250_Agile_Presentation.pptx))
   The presentation to ChadaTech leadership comparing Agile and waterfall, walking the
   wellness change through both approaches, and recommending an adoption path.
+- **Module 6 journal: Agile communication**
+  ([PDF](docs/pdf/Brendan_Malloy_CS250_Module6_Journal.pdf),
+  [DOCX](docs/Brendan_Malloy_CS250_Module6_Journal.docx))
+  How a Scrum Team keeps information open: radiators such as task boards and burndown
+  charts, the role each Scrum event plays in surfacing problems early, and the case for
+  holding decisions in a work item rather than an inbox.
 - **[Slide show source](slideshow/src/)**
   The Java Swing slide show built as Developer, covering the five wellness destinations.
   Source and image resources are tracked here; build output is not.
@@ -118,7 +124,10 @@ The practices I want to carry into future work:
   screens.
 - **One shared board for decisions**, not email. Email was the real weak point of this
   pilot. Answers ended up scattered across separate inboxes, and the inspect and adapt
-  cycle only works when everyone is looking at the same information.
+  cycle only works when everyone is looking at the same information. The
+  [Module 6 journal](docs/pdf/Brendan_Malloy_CS250_Module6_Journal.pdf) works this
+  through in full, including why holding the Product Owner's answer in a work item
+  would have put it in front of everyone who needed it.
 - **Small increments that really run.** Exporting a runnable JAR meant the Tester
   exercised the same build I did rather than a description of it.
 - **A retrospective that ends in one agreed action**, because a single change that
