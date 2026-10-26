@@ -1,0 +1,69 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build on JDK ${{ matrix.java }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        java: ['17', '21']
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK ${{ matrix.java }}
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.java }}
+
+      - name: Compile
+        working-directory: slideshow/src
+        run: javac -Xlint:all -d ../build SlideShow.java
+
+      - name: Package the runnable JAR
+        working-directory: slideshow/src
+        run: >
+          jar --create --file ../SlideShow.jar --main-class SlideShow
+          -C ../build . -C . resources
+
+      - name: Verify the JAR is complete
+        working-directory: slideshow
+        run: |
+          contents=$(jar --list --file SlideShow.jar)
+          echo "$contents"
+
+          # The entry point must be present, or the JAR will not launch.
+          echo "$contents" | grep -qxF 'SlideShow.class' \
+            || { echo "::error::SlideShow.class missing from the JAR"; exit 1; }
+
+          # All five destination images must ship inside the JAR, because
+          # SlideShow loads them from the classpath rather than from disk.
+          images=$(echo "$contents" | grep -c '^resources/Wellness[1-5]\.jpg$')
+          if [ "$images" -ne 5 ]; then
+            echo "::error::expected 5 slide images in the JAR, found $images"
+            exit 1
+          fi
+
+          # A Main-Class entry is what makes "java -jar" work.
+          unzip -p SlideShow.jar META-INF/MANIFEST.MF | grep -q 'Main-Class: SlideShow' \
+            || { echo "::error::Main-Class missing from the manifest"; exit 1; }
+
+          echo "JAR verified: entry point, manifest, and all 5 images present"
+
+      - name: Upload the built JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: SlideShow-jdk${{ matrix.java }}
+          path: slideshow/SlideShow.jar
+          if-no-files-found: error

@@ -1,5 +1,7 @@
 # CS 250: Software Development Lifecycle
 
+[![Build](https://github.com/MalloyTheDev/CS250-SNHU-Travel-Scrum-Pilot/actions/workflows/build.yml/badge.svg)](https://github.com/MalloyTheDev/CS250-SNHU-Travel-Scrum-Pilot/actions/workflows/build.yml)
+
 Portfolio artifacts and reflection from CS 250 at Southern New Hampshire University.
 
 ## About the project
@@ -62,6 +64,10 @@ java -jar ../SlideShow.jar
 Images are read from the classpath with `getResource`, so the packaged JAR runs without
 the project folder beside it. Use **Previous** and **Next** to move through the five
 destinations; navigation wraps in both directions.
+
+These same steps run in CI on JDK 17 and 21. The workflow also checks that the packaged
+JAR carries its entry point, its manifest, and all five destination images, since a JAR
+missing a resource still builds cleanly but renders a blank slide at runtime.
 
 ## Reflection
 
