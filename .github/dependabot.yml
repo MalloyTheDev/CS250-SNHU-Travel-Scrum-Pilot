@@ -1,0 +1,13 @@
+version: 2
+
+updates:
+  # The workflow pins action versions. Without this, a deprecation is only noticed
+  # when a run happens to warn about it, which is how setup-java v4 went stale here.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: Update
+    labels:
+      - dependencies

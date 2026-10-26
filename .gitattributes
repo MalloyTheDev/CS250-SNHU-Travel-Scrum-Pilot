@@ -1,0 +1,21 @@
+# Store every text file with LF in the repository and check it out with LF, so the
+# same source produces the same bytes on Windows, macOS and the Linux CI runners.
+* text=auto eol=lf
+
+# Binary assets must never be line-ending normalized or diffed as text.
+*.jpg   binary
+*.jpeg  binary
+*.png   binary
+*.gif   binary
+*.pdf   binary
+*.docx  binary
+*.pptx  binary
+*.jar   binary
+*.zip   binary
+
+# Keep the coursework documents out of language statistics and collapsed in diffs;
+# they are deliverables rather than source.
+docs/**     linguist-documentation
+*.pdf       -diff
+*.docx      -diff
+*.pptx      -diff
