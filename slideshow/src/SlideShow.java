@@ -34,7 +34,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class SlideShow extends JFrame {
+// Declared final because the constructor calls initComponent, which calls inherited
+// JFrame methods such as setSize. A subclass would therefore be able to observe this
+// object before its own construction had finished, which is the this-escape warning
+// javac reports from JDK 21 onward. Nothing extends SlideShow, so sealing the class
+// is the smaller fix and it removes the warning at its source.
+public final class SlideShow extends JFrame {
 
     // JFrame is serializable, so declaring this ID keeps the compiler and Eclipse
     // from flagging the class. It has no effect on how the slide show runs.
